@@ -1,5 +1,5 @@
 import { ItemsRepository } from '../data/ItemsRepository';
-import { Item, Offer } from '../types';
+import { Item  } from '../types';
 
 export const CheckoutService = {
 	getItems: (): Item[] => ItemsRepository.getItems(),
