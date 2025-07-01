@@ -1,4 +1,6 @@
+import { MockData } from "../../data/mockData";
 import { CheckoutService } from "../../services/CheckoutService";
+import { Item } from "../../types";
 
 describe("Checkout Service", () => {
 	describe("getItems", () => {
@@ -27,10 +29,74 @@ describe("Checkout Service", () => {
 	});
 
 	describe("calculateTotal", () => {
+		const [apple, banana, peach, kiwi] = MockData.items;
+
 		describe("items without offers", () => {
 			it("should return the total price of the items", () => {
-				const total = CheckoutService.calculateTotal([]);
-				expect(total).toBe(0);
+				// 60  (unit price) + 60  (unit price)+ 20 (unit price) = 140
+				const basketItems: Item[] = [peach, peach, peach, kiwi];
+
+				const total = CheckoutService.calculateTotal(basketItems);
+				expect(total).toBe(80);
+			});
+		});
+
+		describe("items with offers", () => {
+			describe("required quantity not met", () => {
+				it("should return the total price of the items", () => {
+					// 30  (unit price) +  100 (unit price) + 20 (unit price) = 100
+					const basketItems: Item[] = [apple, banana, banana, kiwi];
+
+					const total = CheckoutService.calculateTotal(basketItems);
+					expect(total).toBe(150);
+				});
+			});
+
+			describe("required quantity met", () => {
+				describe("one offer in the basket", () => {
+					it("should return the total price of the items", () => {
+						// 45 (offer price) + 50 (unit price) = 95
+						const basketItems: Item[] = [apple, apple, banana];
+
+						const total =
+							CheckoutService.calculateTotal(basketItems);
+						expect(total).toBe(95);
+					});
+
+					it("should return the total price of the items (offer applied + unit price)", () => {
+						// 45 (offer price) + 30 (unit price) + 50 (unit price) + 20 (unit price) = 125
+						const basketItems: Item[] = [
+							apple,
+							apple,
+							apple,
+							banana,
+							kiwi,
+						];
+
+						const total =
+							CheckoutService.calculateTotal(basketItems);
+						expect(total).toBe(145);
+					});
+				});
+				describe("multiple offers in the basket", () => {
+					it("should return the total price of the items", () => {
+						const basketItems: Item[] = [
+							apple, // 45 (offer price)
+							apple,
+							apple,
+							apple, // 45 (offer price)
+							banana,
+							banana,
+							banana, // 130 (offer price)
+							peach, // 60 (unit price)
+						];
+
+						const total =
+							CheckoutService.calculateTotal(basketItems);
+
+						expect(total).toBe(280);
+					});
+				});
 			});
 		});
 	});

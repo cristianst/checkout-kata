@@ -18,6 +18,10 @@ const items: Item[] = [
 		id: "banana",
 		name: "Banana",
 		unitPrice: 50,
+		offer: {
+			quantity: 3,
+			price: 130,
+		},
 	},
 	{
 		id: "peach",
