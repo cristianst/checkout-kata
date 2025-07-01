@@ -4,12 +4,21 @@ This is a coding exercise for Haiilo’s Fullstack Engineer position.
 
 ## Structure
 
-- `backend/`: Koa + TypeScript 
-- `frontend/`: React + Typescript
+- `/backend`: Koa + TypeScript 
+- `/frontend`: React + Typescript
 
 ## Getting Started
 
-Run comamands:
+Run backend:
+
+```sh
+cd backend
+npm install
+npm run dev
+```
+
+Run frontend: TBD
+
 
 ## Notes
 
