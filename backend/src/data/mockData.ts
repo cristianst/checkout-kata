@@ -1,4 +1,4 @@
-import { Item, Offer } from "../types";
+import { Item } from "../types";
 
 type MockData = {
 	items: Item[];

@@ -37,7 +37,7 @@ describe("Checkout Service", () => {
 				const basketItems: Item[] = [peach, peach, peach, kiwi];
 
 				const total = CheckoutService.calculateTotal(basketItems);
-				expect(total).toBe(80);
+				expect(total).toBe(200);
 			});
 		});
 
