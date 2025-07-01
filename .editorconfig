@@ -5,3 +5,4 @@ indent_style =  tab
 trim_trailing_whitespace = false
 indent_size = 4
 insert_final_newline = true
+single_quote = true

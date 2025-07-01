@@ -1,8 +1,8 @@
 import Router from 'koa-router';
 import { ItemController } from '../controllers/ItemController';
 
-const itemsRouter = new Router();
+const itemRouter = new Router();
 
-itemsRouter.get('/items', ItemController.getItems);
+itemRouter.get('/items', ItemController.getItems);
 
-export { itemsRouter }; 
+export { itemRouter };
