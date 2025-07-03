@@ -7,7 +7,7 @@ The project is structured as a monorepo.
 
 -   `/backend`: Koa + TypeScript API
 -   `/frontend`: React + TypeScript UI
--   `/shared` TBD: For future shared content like types
+-   `/shared` Shared content (Like ts types)
 
 ## Getting Started
 
