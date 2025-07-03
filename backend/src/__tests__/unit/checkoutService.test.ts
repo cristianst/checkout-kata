@@ -37,7 +37,7 @@ describe("Checkout Service", () => {
 				const basketItems: Item[] = [peach, peach, peach, kiwi];
 
 				const total = CheckoutService.calculateTotal(basketItems);
-				expect(total).toBe(200);
+				expect(total).toEqual({ total: 200 });
 			});
 		});
 
@@ -48,7 +48,7 @@ describe("Checkout Service", () => {
 					const basketItems: Item[] = [apple, banana, banana, kiwi];
 
 					const total = CheckoutService.calculateTotal(basketItems);
-					expect(total).toBe(150);
+					expect(total).toEqual({ total: 150 });
 				});
 			});
 
@@ -60,7 +60,7 @@ describe("Checkout Service", () => {
 
 						const total =
 							CheckoutService.calculateTotal(basketItems);
-						expect(total).toBe(95);
+						expect(total).toEqual({ total: 95 });
 					});
 
 					it("should return the total price of the items (offer applied + unit price)", () => {
@@ -75,7 +75,7 @@ describe("Checkout Service", () => {
 
 						const total =
 							CheckoutService.calculateTotal(basketItems);
-						expect(total).toBe(145);
+						expect(total).toEqual({ total: 145 });
 					});
 				});
 				describe("multiple offers in the basket", () => {
@@ -94,7 +94,7 @@ describe("Checkout Service", () => {
 						const total =
 							CheckoutService.calculateTotal(basketItems);
 
-						expect(total).toBe(280);
+						expect(total).toEqual({ total: 280 });
 					});
 				});
 			});
