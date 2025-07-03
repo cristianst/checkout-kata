@@ -1,22 +1,7 @@
-import Koa from "koa";
-import { itemRouter, checkoutRouter } from "./api/routes";
-import bodyParser from "koa-bodyparser";
+import app from "./app";
 
-const app = new Koa();
+const PORT = process.env.PORT || 3000;
 
-// error manager middleware
-// app.use(errorManager);
-
-// auth middleware
-// app.use(auth);
-
-app.use(bodyParser());
-
-app.use(itemRouter.routes());
-app.use(checkoutRouter.routes());
-
-app.listen(3000, () => {
-	console.log("🚀 Server running on port 3000");
+app.listen(PORT, () => {
+	console.log(`🚀 Server running on port ${PORT}`);
 });
-
-export default app;
