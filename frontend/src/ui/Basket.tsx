@@ -1,10 +1,12 @@
+import type { Item, BasketItem } from "../types";
+
 export const Basket = ({
 	basket,
 	onRemoveItem,
 	total,
 }: {
-	basket: any[];
-	onRemoveItem: (item: any) => void;
+	basket: BasketItem[];
+	onRemoveItem: (itemId: string) => void;
 	total: number;
 }) => {
 	return (
