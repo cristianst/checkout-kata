@@ -17,7 +17,10 @@ export const useCheckout = () => {
 	}, []);
 
 	const addItem = (item: any) => {
-		setBasket((prev) => [...prev, item]);
+		// workaround to make sure item ids are unique inside basket
+		const basketItemId = `${item.id}-${Date.now()}`;
+		const basketItem = { ...item, basketItemId };
+		setBasket((prev) => [...prev, basketItem]);
 	};
 
 	const removeItem = (index: number) => {

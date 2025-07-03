@@ -7,3 +7,17 @@ Architecute consists of 3 Layers
 -   UI (pure visuals)
 -   Hooks (domain logic)
 -   Client API (external calls)
+
+To run the app, from this directory:
+
+```sh
+npm install
+```
+
+and
+
+```sh
+npm run dev
+```
+
+You can access it in your web browser at http://localhost:5173.

@@ -17,7 +17,7 @@ export const Basket = ({
 					<div>
 						<ul>
 							{basket.map((item) => (
-								<li key={item.id}>
+								<li key={item.basketItemId}>
 									{item.name} - Price: {item.unitPrice}
 									<button onClick={() => onRemoveItem(item)}>
 										Remove
