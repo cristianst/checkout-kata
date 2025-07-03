@@ -5,37 +5,47 @@ The project is structured as a monorepo.
 
 ## Structure
 
-- `/backend`: Koa + TypeScript API
-- `/frontend`: React + TypeScript UI
-- `/shared`: Shared TypeScript types and utilities
+-   `/backend`: Koa + TypeScript API
+-   `/frontend`: React + TypeScript UI
+-   `/shared` TBD: For future shared content like types
 
 ## Getting Started
 
 ### Install dependencies (from the root):
+
 ```sh
 npm install
 ```
 
 ### Run backend:
+
 ```sh
-npm run dev --workspace=backend
+npm run start:backend
 ```
 
 ### Run frontend:
+
 ```sh
-npm run dev --workspace=frontend
+npm run start:backend
 ```
 
+### Run tests:
 
-### Run tests (backend only):
 ```sh
-npm run test --workspace=backend
+npm run test:backend
+```
+
+```sh
+npm run test:frontend
 ```
 
 ## Shared Code
-- Shared types and utilities live in `/shared` and can be imported from both backend and frontend.
+
+-   Shared types and utilities live in `/shared` and can be imported from both backend and frontend.
 
 ## Notes
-- Prices are hardcoded
-- No database or auth used
-- UI will be minimal and connect to the backend via REST
+
+-   Item prices are hardcoded
+-   No database or auth used
+-   UI will be minimal and connect to the backend through API
+-   No e2e tests

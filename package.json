@@ -1,15 +1,23 @@
 {
-  "private": true,
-  "name": "checkout-kata-monorepo",
-  "version": "1.0.0",
-  "workspaces": [
-    "backend",
-    "frontend",
-    "shared"
-  ],
-  "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "jest": "^30.0.3",
-    "ts-jest": "^29.4.0"
-  }
+	"private": true,
+	"name": "checkout-kata-monorepo",
+	"version": "1.0.0",
+	"workspaces": [
+		"backend",
+		"frontend",
+		"shared"
+	],
+	"scripts": {
+		"start:frontend": "npm run dev --workspace=frontend",
+		"test:frontend": "npm run test --workspace=frontend",
+		"build:frontend": "npm run build --workspace=frontend",
+		"start:backend": "npm run dev --workspace=backend",
+		"test:backend": "npm run test --workspace=backend",
+		"build:backend": "npm run build --workspace=backend"
+	},
+	"devDependencies": {
+		"@types/jest": "^30.0.0",
+		"jest": "^30.0.3",
+		"ts-jest": "^29.4.0"
+	}
 }
