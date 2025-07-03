@@ -4,7 +4,7 @@ import { Item } from "../types";
 export const CheckoutService = {
 	getItems: (): Item[] => ItemsRepository.getItems(),
 
-	calculateTotal: (selectedItems: Item[]): number => {
+	calculateTotal: (selectedItems: Item[]): { total: number } => {
 		/**
 		 * Step 1: Group items by ID to count quantities and store item details
 		 * This allows us to process each item type once with its total quantity
@@ -46,6 +46,6 @@ export const CheckoutService = {
 			}
 		}
 
-		return total;
+		return { total };
 	},
 };
