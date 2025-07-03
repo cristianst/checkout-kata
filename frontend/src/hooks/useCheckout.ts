@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckoutAPI } from "../clientAPI";
 
 export const useCheckout = () => {
 	// use types here
 	const [basket, setBasket] = useState<any[]>([]);
 	const [total, setTotal] = useState(0);
+	const [items, setItems] = useState<any[]>([]);
+
+	useEffect(() => {
+		console.log("fetch items from backend...");
+		const getItems = async () => {
+			const result = await CheckoutAPI.getItems();
+			setItems(result);
+		};
+		getItems();
+	}, []);
 
 	const addItem = (item: any) => {
 		setBasket((prev) => [...prev, item]);
@@ -23,5 +33,13 @@ export const useCheckout = () => {
 		setTotal(result.total);
 	};
 
-	return { basket, total, addItem, removeItem, clearBasket, calculateTotal };
+	return {
+		basket,
+		total,
+		addItem,
+		removeItem,
+		clearBasket,
+		calculateTotal,
+		items,
+	};
 };
