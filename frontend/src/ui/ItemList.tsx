@@ -7,7 +7,7 @@ export const ItemList = ({
 }) => {
 	return (
 		<div>
-			<h3>Items</h3>
+			<h3>Available Items</h3>
 			<ul>
 				{items.map((item) => (
 					<li key={item.id}>

@@ -13,5 +13,5 @@ const apiClient = {
 export const CheckoutAPI = {
 	getItems: () => apiClient.get("/items"),
 	calculateTotal: (basket: any) =>
-		apiClient.post("/checkout/total", { basket }),
+		apiClient.post("/checkout/total", { items: basket }),
 };

@@ -29,6 +29,7 @@ export const useCheckout = () => {
 	};
 
 	const calculateTotal = async () => {
+		console.log("calculating total for basket", basket);
 		const result = await CheckoutAPI.calculateTotal(basket);
 		setTotal(result.total);
 	};
