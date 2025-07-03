@@ -1,12 +1,14 @@
-import type { Item, BasketItem } from "../types";
+import type { BasketItem } from "../types";
 
 export const Basket = ({
 	basket,
 	onRemoveItem,
+	clearBasket,
 	total,
 }: {
 	basket: BasketItem[];
 	onRemoveItem: (itemId: string) => void;
+	clearBasket: () => void;
 	total: number;
 }) => {
 	return (
@@ -33,6 +35,7 @@ export const Basket = ({
 						</ul>
 					</div>
 					<div>Total: {total}</div>
+					<button onClick={clearBasket}>Clear Basket</button>
 				</>
 			)}
 		</div>

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { CheckoutAPI } from "../clientAPI";
+import type { BasketItem, Item } from "../types";
 
 export const useCheckout = () => {
 	// use types here
-	const [basket, setBasket] = useState<any[]>([]);
+	const [basket, setBasket] = useState<BasketItem[]>([]);
 	const [total, setTotal] = useState(0);
-	const [items, setItems] = useState<any[]>([]);
+	const [items, setItems] = useState<Item[]>([]);
 
 	useEffect(() => {
 		console.log("fetch items from backend...");
@@ -16,10 +17,10 @@ export const useCheckout = () => {
 		getItems();
 	}, []);
 
-	const addItem = (item: any) => {
+	const addItem = (item: Item) => {
 		// workaround to make sure item ids are unique inside basket
 		const basketItemId = `${item.id}-${Date.now()}`;
-		const basketItem = { ...item, basketItemId };
+		const basketItem: BasketItem = { ...item, basketItemId };
 		setBasket((prev) => [...prev, basketItem]);
 	};
 

@@ -31,6 +31,7 @@ export const CheckoutPage = () => {
 						basket={basket}
 						onRemoveItem={removeItem}
 						total={total}
+						clearBasket={clearBasket}
 					/>
 				</div>
 			</div>
