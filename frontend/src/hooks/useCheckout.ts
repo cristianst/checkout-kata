@@ -23,8 +23,10 @@ export const useCheckout = () => {
 		setBasket((prev) => [...prev, basketItem]);
 	};
 
-	const removeItem = (index: number) => {
-		setBasket((prev) => prev.filter((_, i) => i !== index));
+	const removeItem = (basketItemId: string) => {
+		setBasket((prev) =>
+			prev.filter((item) => item.basketItemId !== basketItemId)
+		);
 	};
 
 	const clearBasket = () => {
