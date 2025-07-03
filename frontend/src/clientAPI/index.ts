@@ -1,3 +1,5 @@
+import type { BasketItem } from "../types";
+
 const backendUrl = "http://localhost:3000";
 
 const apiClient = {
@@ -12,6 +14,6 @@ const apiClient = {
 
 export const CheckoutAPI = {
 	getItems: () => apiClient.get("/items"),
-	calculateTotal: (basket: any) =>
+	calculateTotal: (basket: BasketItem[]) =>
 		apiClient.post("/checkout/total", { items: basket }),
 };
